@@ -27,6 +27,7 @@ const hbs = exphbs.create({ helpers });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.use("/images", express.static(path.join(__dirname, "/public/images")));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
