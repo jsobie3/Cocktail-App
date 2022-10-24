@@ -1,5 +1,6 @@
-<div class="row justify-space-between-md">
-  <div class="login-card">
+{{!-- Testing rows/columns here --}}
+<div class="justify-space-between-md row">
+  <div class="login-card large-4 columns">
     <h2 class="page-title">Login</h2>
     <form class="form login-form">
       <div class="form-group">
@@ -11,12 +12,13 @@
         <input class="form-input" type="password" id="password-login" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
+        {{!-- Buttons not working on Foundation right now --}}
+        <button class="btn btn-primary submit button">Login</button>
       </div>
     </form>
   </div>
   <div class="login-card">
-    <h2 class="page-title">Signup</h2>
+    <h2 class="page-title row">Signup</h2>
     <form class="form signup-form">
       <div class="form-group">
         <label for="username-signup">Username:</label>
@@ -31,10 +33,19 @@
         <input class="form-input" type="password" id="password-signup" />
       </div>
       <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
+        {{!-- Buttons not working on Foundation right now --}}
+        <button class="btn btn-primary submit button">Sign Up</button>
       </div>
     </form>
   </div>
 </div>
 
 <script src="./js/login.js"></script>
+
+<!-- Compressed CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/css/foundation.min.css"
+  crossorigin="anonymous">
+
+<!-- Compressed JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js"
+  crossorigin="anonymous"></script>
