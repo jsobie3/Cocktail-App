@@ -23,7 +23,14 @@ Drink.init(
                 model: "user",
                 key: 'id'
             }
-        }
+        },
+        ingredients: {
+            type: DataTypes.STRING
+        },
+        // tags: {
+        //     type: DataTypes.ARRAY(DataTypes.STRING),
+        //     allowNull: true
+        // }
         // ingredients, probably(enter manually)? Flavor-profile tags(dropdown list)? drink size(dropdown list)? Ask a bartender what else this needs
     }, {
     sequelize,

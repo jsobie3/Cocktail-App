@@ -70,4 +70,43 @@ router.post('/logout', (req, res) => {
   }
 });
 
+// get all users
+router.get('/', async (req, res) => {
+  const userData = await User.findAll();
+  res.json(userData);
+})
+
+
+// get user by id
+router.get('/:id', async (req, res) => {
+  const userData = await User.findAll({
+    where: {
+      id: req.params.id
+    }
+  });
+  if (!userData){
+    res.status(404).json({message: 'No user found with this id'})
+  }
+  res.json(userData);
+})
+
+// Delete user
+router.delete('/:id', (req, res) => {
+  User.destroy({
+      where: {
+          id: req.params.id
+      }
+  })
+  .then(data => {
+      if (!data) {
+          res.status(404).json({message: "No user found with this ID"})
+      }
+      res.json(data);
+  })
+  .catch((err) => {
+      res.status(500).json(err);
+  })
+})
+
+
 module.exports = router;

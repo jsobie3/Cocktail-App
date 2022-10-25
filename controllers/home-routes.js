@@ -3,6 +3,10 @@ const { User } = require('../models');
 // Import the custom middleware
 const withAuth = require('../utils/auth');
 
+
+
+
+
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
@@ -25,6 +29,22 @@ router.get('/', async (req, res) => {
     }
 
     res.render('login');
+  });
+
+  router.get('/profile', (req, res) => {
+
+    res.render('profile', {
+      loggedIn: req.session.loggedIn
+    });
+  });
+
+
+  // Classics
+  router.get('/classics', (req, res) => {
+
+    res.render('classics', {
+      loggedIn: req.session.loggedIn
+    });
   });
 
   module.exports = router;
