@@ -23,11 +23,13 @@
           <a href="/">Home</a>
           {{#if loggedIn}}
           <button id="logout" class="btn-no-style">Logout</button>
+          <li><a href="/profile">Profile</a></li>
+
           {{else}}
           <a href="/login">Login</a>
           {{/if}}
+          <li><a href="/classics">Classics</a></li>
 
-          <li><a href="#">Favorites</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
@@ -40,22 +42,16 @@
   </header>
 
   <main>
-    <div class = "background-image" > 
-    <img src="/images/smokeybackground.jpg">
- </div>
+
 
     <div class="gallery">
       {{{body}}}
     </div>
   </main>
+
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
   {{/if}}
 </body>
-
-
-{{!-- <!-- Compressed JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js"
-  crossorigin="anonymous"></script> --}}
 
 </html>
