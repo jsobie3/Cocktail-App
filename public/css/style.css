@@ -64,6 +64,11 @@ nav a {
   text-align: center;
 }
 
+.title-text {
+  font-size: 24px;
+  font-weight: bolder;
+}
+
 nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
