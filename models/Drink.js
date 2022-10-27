@@ -27,6 +27,13 @@ Drink.init(
         ingredients: {
             type: DataTypes.STRING
         },
+        // category_id: {
+        //     type: DataTypes.INTEGER,
+        //     references: {
+        //         model: category,
+        //         key: 'id'
+        //     }
+        // }
         // tags: {
         //     type: DataTypes.ARRAY(DataTypes.STRING),
         //     allowNull: true

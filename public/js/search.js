@@ -1,19 +1,34 @@
-const options = {
-    method: 'GET',
-    headers: {
-        'X-RapidAPI-Key': 'f74f08a91bmshf078c80f0ca28b0p1d1924jsn8f1272119590',
-        'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
+console.log("YOU HAVE ACCESSED SEARCH.JS")
+
+// const options = {
+//     method: 'GET',
+//     headers: {
+//         'X-RapidAPI-Key': '7697d621e5msh45f75f307152943p1d76e8jsn107cee9d3bf4',
+//         'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
+//     }
+// };
+
+// function searchhFormHandler(){
+//     console.log("Test triggered")
+// }
+
+
+let searchResults = [];
+
+
+const getSearchResults = async () => {
+
+    const searchParam = 
+    await fetch(`https://the-cocktail-db.p.rapidapi.com/search.php?s=${searchParam}`, options)
+
+
+        .then(response => response.json())
+        .then(response => {
+            console.log(response)
+        })
+        .catch(err => console.error(err));
     }
-};
 
-
-const searchFormHandler = async (event) => {
-    event.preventDefault();
-
-    const searchParam = document.querySelector('#liquor-search').value.trim();
-
- await fetch(`https://the-cocktail-db.p.rapidapi.com/search.php?s=${searchParam}`, options)
-    .then(response => response.json())
-    .then(response => console.log(response))
-    }.catch(err => console.error(err));
-}
+    
+//getSearchResults();
+// document.getElementById('search-button').addEventListener('click', searchFormHandler)
