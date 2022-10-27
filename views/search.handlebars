@@ -1,7 +1,19 @@
-{{#each results as |result|}}
-<p>{{result.strDrink}}</p>
+<div class="card" style="padding: 50px; min-width: 500px">
+    
+{{#each drinks as |result|}}
+<h1 style="text-decoration:underline">{{result.strDrink}}</h1>
+<hr>
+<img src="{{result.strDrinkThumb}}" alt="{{result.strDrink}}" style="max-height: 100px; max-width: 100px; align-items-center">
+<ul class="h4" style="text-decoration:underline;">Ingredients</ul>
+{{#each result.ingredients as |ingredient|}}
+<li>{{ingredient.qty}} - {{ingredient.name}}</li>
 {{/each}}
-<h1>WELCOME TO SEARCH RESULTS</h1>
+<hr>
+<h4 style="text-decoration:underline;">Instructions</h4>
+<p>{{result.strInstructions}}</p>
+{{/each}}
+</div>
 
 <div id="search-results"></div>
-<script src="/js/search"></script>
+{{!-- <script src="/js/search"></script> --}}
+
