@@ -48,6 +48,8 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+     
+      
 
       res
         .status(200)
@@ -57,6 +59,7 @@ router.post('/login', async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
+  
 });
 
 // Logout

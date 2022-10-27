@@ -18,6 +18,15 @@ Drink.hasMany(Comment, {
     foreignKey: 'drink_id'
 })
 
+// Category.belongsTo(Category, {
+//     foreignKey
+// })
+
+// Drink.hasMany(Category, {
+//     foreignKey: 'category'
+// })
+
+// Category
 
 
 module.exports = { User, Drink, Comment };
