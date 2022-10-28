@@ -252,8 +252,35 @@ img {
   transition-delay: 0.1s;
   margin-bottom: 0%; }
 .overlay-fade-in:hover  {
-  transition-delay: 0.2s; }
+  transition-delay: 0.2s linear; }
 
 
 
 /*  END FOUNDATION HOVER */
+
+
+/* Start foundation search bar */
+
+.button-round{
+  width: 100px;
+  height: 40px;
+  background-color: #2f3640;
+  border-radius: 40px;
+  transition: background-color 1s;
+ 
+}
+
+.button-round:hover{
+  background-color: rgba(102, 97, 97, 0.884);
+  transition: background-color 0.5s;
+}
+
+#liquor-search {
+  background: #2f3640;
+  height: 40px;
+  border-radius: 40px;
+  padding: 10px;
+  color: white;
+}
+
+/* end foundation search bar */
