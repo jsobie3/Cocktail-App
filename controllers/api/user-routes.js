@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id;
 
       res.status(200).json(dbUserData);
     });
@@ -48,9 +49,11 @@ router.post('/login', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.user_id = dbUserData.id;
      
       
 
+      console.log("SESSION DETAILS: ", req.session)
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
@@ -109,6 +112,16 @@ router.delete('/:id', (req, res) => {
   .catch((err) => {
       res.status(500).json(err);
   })
+})
+
+// Get user session details
+router.get('/session', async (req, res) => {
+  try {
+  res.json(req.session)
+  }
+  catch (err) {
+    res.json(err)
+  }
 })
 
 

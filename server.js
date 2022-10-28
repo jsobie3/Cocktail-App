@@ -25,6 +25,7 @@ app.use(session(sess));
 
 const hbs = exphbs.create({ helpers });
 
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use("/images", express.static(path.join(__dirname, "/public/images")));
@@ -33,8 +34,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) =>{
+  console.log("CURRENT USER ID", req.session.user_id);
+  next();
+})
+
 app.use(routes);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));
 });
+

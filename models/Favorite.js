@@ -1,43 +1,40 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { User, Drink } = require('./')
+const User = require('./User')
 
-class Comment extends Model { }
+class Favorite extends Model {};
 
-Comment.init(
+Favorite.init(
     {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
-            allowNull: false,
-            autoIncrement: true
+            autoIncrement: true,
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
             }
         },
+        // These DO NOT reference drinks in our database. It's a "reference" to the drink ID assigned by the external API.
         drink_id: {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        content: {
+        drink_name: {
             type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-                len: [1]
-            }
+            allowNull: false
         }
-    },
-    {
+    },{
         sequelize,
         freezeTableName: true,
-        underscored: true,
-        modelName: 'comment'
+        modelName: 'favorite'
     }
-);
-
-module.exports = Comment;
+)
+module.exports = Favorite;

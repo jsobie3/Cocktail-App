@@ -27,8 +27,16 @@ const getSearchResults = async () => {
             console.log(response)
         })
         .catch(err => console.error(err));
-    }
+    };
 
-    
+
+    $(document).ready(function () {
+
+        $(".saveBtn").on("click", function (e) {
+            e.preventDefault();
+            console.log("yousa cilka da battan3");
+        });
+    });
+ 
 //getSearchResults();
 // document.getElementById('search-button').addEventListener('click', searchFormHandler)

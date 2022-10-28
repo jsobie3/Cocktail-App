@@ -4,11 +4,6 @@ const { User } = require('../models');
 const withAuth = require('../utils/auth');
 const axios = require('axios');
 
-
-
-
-
-// GET all galleries for homepage
 router.get('/', async (req, res) => {
   try {
     res.render('homepage', {
@@ -64,7 +59,12 @@ router.get('/search', (req, res) => {
   axios.get(`https://the-cocktail-db.p.rapidapi.com/search.php?s=${req.query.search}`, options)
     .then(response => {
       const results = response.data.drinks;
-      let drinks = results.map(drink => {
+      if(!results){
+        // TODO: THIS IS WHERE WE SHOULD SOMEHOW INDICATE NO RESULTS
+        return res.status(404).end();
+      }
+      console.log(results)
+      let drinks = (results || []).map(drink => {
         let newDrink = { ...drink, ingredients: [] };
         for (let i = 1; i < 16; i++) {
           if (drink["strIngredient" + i]) {
@@ -78,9 +78,27 @@ router.get('/search', (req, res) => {
         return newDrink;
       })
       console.log("RESULTS", drinks)
-      res.render('search', { drinks })
+      res.render('search', { 
+        drinks: drinks,
+      loggedIn: req.session.loggedIn })
     })
 
+})
+
+
+router.get('/favorites', (req, res) => {
+  res.render('favorites')
+})
+
+
+router.get('/byingredient', (req, res) => {
+  console.log("Searching for Ingredient", req.query)
+  axios.get(`https://the-cocktail-db.p.rapidapi.com/filter.php?i=${req.query.search}`, options)
+  .then(response => {
+    const results = response.data.drinks;
+    console.log("RESULTS", results)
+    res.render('byingredient', { results })
+  })
 })
 
 module.exports = router;

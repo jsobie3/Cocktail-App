@@ -1,19 +1,29 @@
-<div class="card" style="padding: 50px; min-width: 500px">
+<div class="card" style="padding: 50px; min-width: 500px; align-items: center;">
     
 {{#each drinks as |result|}}
 <h1 style="text-decoration:underline">{{result.strDrink}}</h1>
 <hr>
-<img src="{{result.strDrinkThumb}}" alt="{{result.strDrink}}" style="max-height: 100px; max-width: 100px; align-items-center">
-<ul class="h4" style="text-decoration:underline;">Ingredients</ul>
+<img src="{{result.strDrinkThumb}}" alt="{{result.strDrink}}" style="border: solid; max-height: 200px; max-width: 200px; align-items-center">
+<h4 style="text-decoration:underline;">Ingredients</h4>
+
 {{#each result.ingredients as |ingredient|}}
+<ul class="no-bullet">
 <li>{{ingredient.qty}} - {{ingredient.name}}</li>
+</ul>
 {{/each}}
-<hr>
+
 <h4 style="text-decoration:underline;">Instructions</h4>
 <p>{{result.strInstructions}}</p>
+{{!-- <div class="responsive-embed">
+  <iframe width="420" height="315" src="{{result.strVideo}}" frameborder="0" allowfullscreen></iframe>
+</div> --}}
+<input type="text" placeholder="Enter a review to save this drink to your profile!">
+<button class="button saveBtn">Save as Favorite</button>
+<hr>
+<hr style="border: solid; width: auto; min-width: 600px; align-items: left; margin: 0px">
+<hr>
 {{/each}}
 </div>
 
-<div id="search-results"></div>
-{{!-- <script src="/js/search"></script> --}}
 
+<script src="/js/search.js"></script>
