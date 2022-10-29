@@ -60,7 +60,7 @@ router.get('/search', (req, res) => {
     .then(response => {
       const results = response.data.drinks;
       if(!results){
-        // TODO: THIS IS WHERE WE SHOULD SOMEHOW INDICATE NO RESULTS
+        // TODO: THIS IS WHERE WE SHOULD SOMEHOW INDICATE NO RESULTS -- MAKE 404 LANDING PAGE IN VIEWS?
         return res.status(404).end();
       }
       console.log(results)
@@ -90,6 +90,7 @@ router.get('/favorites', (req, res) => {
   res.render('favorites')
 })
 
+// Need to write an if statement in case the search box is left blank. Currently runs a getAll, but would prefer an alert window pop up
 
 router.get('/byingredient', (req, res) => {
   console.log("Searching for Ingredient", req.query)
