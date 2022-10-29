@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="/css/style.css" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
- <script src="https://kit.fontawesome.com/c26f9aa7d9.js" crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/c26f9aa7d9.js" crossorigin="anonymous"></script>
 
 </head>
 
@@ -22,11 +22,10 @@
       <div class="top-bar-left">
         <ul class="dropdown menu" data-dropdown-menu>
 
-{{!-- THIS SHOULD BE THE HOME BUTTON NO? --}}
-
-          <li class="title-text">🍸The Best Men🍸</li>
-
-          <a href="/">Home</a>
+          {{!-- THIS SHOULD BE THE HOME BUTTON NO? --}}
+          <a href="/">
+            <li class="title-text">🍸The Best Men🍸</li>
+          </a>
           {{#if loggedIn}}
           <button id="logout" class="btn-no-style">Logout</button>
           <li><a href="/profile">Profile</a></li>
@@ -35,9 +34,8 @@
           <a href="/login">Login</a>
           {{/if}}
 
-{{!-- THIS SHOULD BE MOVED TO THE CLASSICS CARD --}}
 
-          <li><a href="/classics">Classics</a></li>
+          {{!-- <li><a href="/classics">Classics</a></li> --}}
 
         </ul>
       </div>
@@ -46,17 +44,18 @@
           <ul class="menu">
             <li><input name="search" id="liquor-search" placeholder="Search for a Cocktail..."
                 style="min-height: 38.78px"></li>
-            <li><button id="search-button" class="button-round" ><i class="fa-solid fa-martini-glass-citrus"></i></i> </button></li>
-            
-            
+            <li><button id="search-button" class="button-round"><i class="fa-solid fa-martini-glass-citrus"></i></i>
+              </button></li>
+
+
           </ul>
         </form>
       </div>
 
-</div>
+    </div>
 
 
-   
+
   </header>
 
   <main>
@@ -72,6 +71,7 @@
   {{/if}}
 </body>
 
-{{!-- <script src="./js/search.js"></script> --}}
+{{!--
+<script src="./js/search.js"></script> --}}
 
 </html>
