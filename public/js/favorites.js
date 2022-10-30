@@ -3,19 +3,24 @@ const deleteButtons = document.getElementsByClassName('deleteFavoriteButton')
 
 
 async function deleteFavorite (ID) {
-  // await fetch(`/api/favorites/${ID}`)
-  // .then ("Nice")
-  // .catch(err => console.err(err))
-  console.log(`This would delete favorite with drink_id ${ID}`)
+  //console.log(`This would delete favorite with drink_id ${ID}`)
+  await fetch(`/api/favorites/${ID}`, {
+    method: 'DELETE'
+  })
+  .then (console.log(`${ID} deleted`))
+  .catch(err => console.error(err))
 }
 
 function test() {
   console.log("Click!")
 }
 
-for (button in deleteButtons) {
-button.addEventListener('click', test)
-}
+document.addEventListener('click', (event) => {
+  if(!event.target.dataset.drinkid){
+    return
+  }
+  deleteFavorite(event.target.dataset.drinkid)
+})
 
 // GETTING FAVS FROM USERS
 

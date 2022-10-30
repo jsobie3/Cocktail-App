@@ -8,7 +8,7 @@ router.post('/', async (req, res) => {
       drink_id: req.body.drinkID,
       drink_name: req.body.drinkName
     })
-    res.status(200).json({message: "Favorite added"})
+    res.status(200).json({ message: "Favorite added" })
   }
   catch (err) {
     res.status(500).json(err)
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
 })
 
 // get all favorites where user_id foreign key matches current user id
-router.get('/', async (req,res) => {
+router.get('/', async (req, res) => {
   try {
     const favoritesList = await Favorite.findAll({
       where: {
@@ -24,25 +24,33 @@ router.get('/', async (req,res) => {
       }
     })
     if (!favoritesList) {
-      res.status(404).json({message: 'No favorites found'})
+      res.status(404).json({ message: 'No favorites found' })
     }
-    console.log(favoritesList[0].dataValues.drink_name)
-    res.render('favorites', {favoritesList})
+    res.render('favorites', { favoritesList })
   } catch (err) {
     res.status(500).json(err)
   }
 });
 
-router.delete(':/', async (req,res) => {
+router.delete('/:id', async (req, res) => {
   try {
     Favorite.destroy({
       where: {
-        id: req.params.id
+        drink_id: req.params.id
       }
     })
-    res("success")
+    res.json({ message: "success" })
   } catch (err) {
     res.status(500).json(err)
+  }
+})
+
+router.get('/all', async (req, res) => {
+  try {
+    const favorites = await Favorite.findAll()
+    res.status(200).json(favorites)
+  } catch (err) {
+    res.status(500).json({ message: `Error: ${err}` })
   }
 })
 
