@@ -1,3 +1,22 @@
+console.log("favorites.js accessed")
+const deleteButtons = document.getElementsByClassName('deleteFavoriteButton')
+
+
+async function deleteFavorite (ID) {
+  // await fetch(`/api/favorites/${ID}`)
+  // .then ("Nice")
+  // .catch(err => console.err(err))
+  console.log(`This would delete favorite with drink_id ${ID}`)
+}
+
+function test() {
+  console.log("Click!")
+}
+
+for (button in deleteButtons) {
+button.addEventListener('click', test)
+}
+
 // GETTING FAVS FROM USERS
 
 // let myFavorites = [];
@@ -55,3 +74,5 @@
   //   );
   //   localStorage.setItem("favoriteDrinks", JSON.stringify(favoriteDrinks));
   // });
+
+  

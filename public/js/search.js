@@ -12,9 +12,7 @@ console.log("YOU HAVE ACCESSED SEARCH.JS")
 //     console.log("Test triggered")
 // }
 
-
 let searchResults = [];
-
 
 const getSearchResults = async () => {
 
@@ -32,9 +30,24 @@ const getSearchResults = async () => {
 
     $(document).ready(function () {
 
-        $(".saveBtn").on("click", function (e) {
+        $(".saveBtn").on("click", async function (e) {
             e.preventDefault();
             console.log("yousa cilka da battan3");
+            // console.log(e.target.dataset.drinkid)
+            if (e.target.dataset.drinkid){
+                let drinkID = e.target.dataset.drinkid;
+                let drinkName = e.target.dataset.drinkname;
+                const response = await fetch('/api/favorites', {
+                    method: 'POST',
+                    body: JSON.stringify ({drinkID, drinkName}),
+                    headers: {'Content-Type' : 'application/json'},
+                });
+                if (response.ok) {
+                    alert('Favorite added')
+                } else {
+                    alert('Failed');
+                }
+            };
         });
     });
  

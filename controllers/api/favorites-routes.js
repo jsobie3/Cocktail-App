@@ -1,24 +1,49 @@
 const router = require('express').Router();
-const { User } = require('../../models')
+const { Favorite } = require('../../models')
 
-// Get all drinks with drink_ids matching user favorites
-
-router.get('/', (req, res) => {
-    
+router.post('/', async (req, res) => {
+  try {
+    await Favorite.create({
+      user_id: req.session.user_id,
+      drink_id: req.body.drinkID,
+      drink_name: req.body.drinkName
+    })
+    res.status(200).json({message: "Favorite added"})
+  }
+  catch (err) {
+    res.status(500).json(err)
+  }
 })
 
-router.post('/', (req,res) => {
-    // get current user favorite list
-    // get user by id
-    router.get('/:id', async (req, res) => {
-    const userData = await User.findAll({
+// get all favorites where user_id foreign key matches current user id
+router.get('/', async (req,res) => {
+  try {
+    const favoritesList = await Favorite.findAll({
       where: {
-        id: req.session
+        user_id: req.session.user_id
       }
-    });
-    if (!userData){
-      res.status(404).json({message: 'No user found with this id'})
+    })
+    if (!favoritesList) {
+      res.status(404).json({message: 'No favorites found'})
     }
-    res.json(userData);
-  })
+    console.log(favoritesList[0].dataValues.drink_name)
+    res.render('favorites', {favoritesList})
+  } catch (err) {
+    res.status(500).json(err)
+  }
+});
+
+router.delete(':/', async (req,res) => {
+  try {
+    Favorite.destroy({
+      where: {
+        id: req.params.id
+      }
+    })
+    res("success")
+  } catch (err) {
+    res.status(500).json(err)
+  }
 })
+
+module.exports = router

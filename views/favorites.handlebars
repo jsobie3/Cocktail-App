@@ -1,1 +1,9 @@
+{{#each favoritesList}}
 <div class="card" style="padding: 50px; min-width: 500px; align-items: center;">
+    <p>{{dataValues.drink_name}}</p>
+    <button class='drinkDetailsButton'> Full Entry</button>
+    <button class='deleteFavoriteButton' data-drinkID="{{dataValues.drink_id}}"> Delete Favorite</button>
+</div>
+{{/each}}
+
+<script src="/js/favorites.js"></script>
