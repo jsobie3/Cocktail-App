@@ -11,10 +11,6 @@ Favorite.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        name: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -34,7 +30,8 @@ Favorite.init(
     },{
         sequelize,
         freezeTableName: true,
-        modelName: 'favorite'
+        modelName: 'favorite',
+        timestamps: false
     }
 )
 module.exports = Favorite;
