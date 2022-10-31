@@ -1,11 +1,17 @@
 
 $(document).ready(function () {
 
-    $(".favBtn").on("click", function (e) {
-        document.location.replace("/favorites")
-       
+    $(".favBtn").on("click", async function (e) {
         e.preventDefault();
-        console.log("yousa cilka da battan");
+        favoriteList = await fetch('/api/favorites')
+        .then(results=> results.json())
+        .catch(err => console.error(err))
+        console.log(favoriteList)
+        // document.location.replace("/favorites", {favoriteList})
+        // await fetch('/api/favorites', {
+        //     method: 'GET'
+        // })
+        // console.log("yousa cilka da battan");
     });
 });
 
