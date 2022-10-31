@@ -18,20 +18,22 @@
 
 <body>
   <header>
-    <div class="top-bar">
+    <div class="top-bar" style="border-radius: 20px;">
       <div class="top-bar-left">
-        <ul class="dropdown menu" data-dropdown-menu>
+        <ul class="dropdown menu">
 
-          {{!-- THIS SHOULD BE THE HOME BUTTON NO? --}}
           <a href="/">
-            <li class="title-text">🍸The Best Men🍸</li>
+            <li class="h4" style="font-family:'Courier New', Courier, monospace">🍸The Best Men🍸</li>
           </a>
           {{#if loggedIn}}
-          <button id="logout" class="btn-no-style">Logout</button>
-          <li><a href="/profile">Profile</a></li>
+          {{!-- <li><button id="logout" class="btn-no-style">Logout</button></li> --}}
+          <a href="/"><button id="logout" class="button-round" style="color: white;">Logout</button></a>
 
+          {{!-- <li><a href="/profile">Profile</a></li> --}}
+          <a href="/profile"><button id="search-button" class="button-round" style="color: white;">Profile</button></a>
           {{else}}
-          <a href="/login">Login</a>
+          {{!-- Login --}}
+          <a href="/login"><button id="search-button" class="button-round" style="color: white;">Login</button></a>
           {{/if}}
 
 
@@ -44,7 +46,8 @@
           <ul class="menu">
             <li><input name="search" id="liquor-search" placeholder="Search for a Cocktail..."
                 style="min-height: 38.78px"></li>
-            <li><button id="search-button" class="button-round"><i class="fa-solid fa-martini-glass-citrus"></i></i>
+            <li><button id="search-button" class="button-round"><i class="fa-solid fa-martini-glass-citrus"
+                  style="color: white;"></i>
               </button></li>
 
 
