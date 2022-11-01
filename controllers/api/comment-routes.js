@@ -1,7 +1,7 @@
 const router = require('express').Router();
-const{ User, Post } = require('../../models');
+const{ Comment } = require('../../models');
 
-router.post('/'), async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         Comment.create({
             content: 'Get text from input for here',
@@ -12,6 +12,6 @@ router.post('/'), async (req, res) => {
         } catch (err) {
             res.status(500).json(err)
         }
-        }
+        })
 
 
