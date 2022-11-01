@@ -18,40 +18,41 @@
 
 <body>
   <header>
-    <div class="top-bar" style="border-radius: 20px;">
-      <div class="top-bar-left">
-        <ul class="dropdown menu">
+    <div class="top-bar" style="border-radius: 5px; margin: 5px; padding: 5px; justify-items: center;">
+      <div class="top-bar-left" style="align-items: center">
+        
 
           <a href="/">
-            <li class="h4" style="font-family:'Courier New', Courier, monospace">🍸The Best Men🍸</li>
+          
+            <img src="/images/best-men-logo.png" style="max-width: 100%;">
           </a>
           {{#if loggedIn}}
           {{!-- <li><button id="logout" class="btn-no-style">Logout</button></li> --}}
-          <a href="/"><button id="logout" class="button-round" style="color: white;">Logout</button></a>
+          <a href="/"><button id="logout" class="button-round" style="color: white; float: left; margin-right: 10px; margin-top: 10px;">Logout</button></a>
 
           {{!-- <li><a href="/profile">Profile</a></li> --}}
-          <a href="/profile"><button id="search-button" class="button-round" style="color: white;">Profile</button></a>
+          <a href="/profile"><button id="search-button" class="button-round" style="color: white; float: left; margin-top: 10px;">Profile</button></a>
           {{else}}
           {{!-- Login --}}
-          <a href="/login"><button id="search-button" class="button-round" style="color: white;">Login</button></a>
+          <a href="/login"><button id="search-button" class="button-round" style="color: white; float: left; margin-top: 10px;">Login</button></a>
           {{/if}}
 
 
           {{!-- <li><a href="/classics">Classics</a></li> --}}
 
-        </ul>
+        
       </div>
       <div class="top-bar-right">
-        <form method="GET" action="/search">
-          <ul class="menu">
-            <li><input name="search" id="liquor-search" placeholder="Search for a Cocktail..."
-                style="min-height: 38.78px"></li>
-            <li><button id="search-button" class="button-round"><i class="fa-solid fa-martini-glass-citrus"
+        <form method="GET" action="/search" style="float-left">
+          
+            <input name="search" id="liquor-search" placeholder="Search for a Cocktail..."
+                style="min-height: 38.78px; font-size: 12px; margin-right: 0px">
+            <button id="search-button" class="button-round"><i class="fa-solid fa-martini-glass-citrus"
                   style="color: white;"></i>
-              </button></li>
+              </button>
 
 
-          </ul>
+          
         </form>
       </div>
 

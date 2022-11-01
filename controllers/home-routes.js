@@ -84,13 +84,30 @@ router.get('/search', (req, res) => {
     })
 
 })
-
-
-router.get('/favorites', (req, res) => {
-  res.render('favorites')
-})
-
 // Need to write an if statement in case the search box is left blank. Currently runs a getAll, but would prefer an alert window pop up
+
+router.get('/profile/favorites', async(req, res) => {
+  var fullUrl = req.protocol + '://' + req.get('host');
+  // console.log(req.session);
+  axios.get(`${fullUrl}/api/favorites`, {
+    withCredentials: true,
+    credentials: "include",
+    headers: {
+      'user_id' : req.session.user_id
+    }})
+  .then((response) => {
+    results = response.data
+    console.log(results)
+    if(results){
+      res.render('favorites', { 
+        drinks: results 
+      })
+    }
+    else{
+      console.log("triggering me")}
+    })
+  .catch(e => {console.log(e.response.data)});
+})
 
 router.get('/byingredient', (req, res) => {
   console.log("Searching for Ingredient", req.query)
