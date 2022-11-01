@@ -45,6 +45,13 @@ router.get('/classics', (req, res) => {
 });
 
 
+//Our Favorites
+router.get('/ourfavorites', (req, res) => {
+  res.render('ourfavorites', {
+    loggedIn: req.session.loggedIn
+  })
+})
+
 // Search route
 
 const options = {
@@ -100,7 +107,8 @@ router.get('/profile/favorites', async(req, res) => {
     console.log(results)
     if(results){
       res.render('favorites', { 
-        drinks: results 
+        drinks: results,
+        loggedIn: req.session.loggedIn 
       })
     }
     else{
@@ -108,6 +116,7 @@ router.get('/profile/favorites', async(req, res) => {
     })
   .catch(e => {console.log(e.response.data)});
 })
+
 
 router.get('/byingredient', (req, res) => {
   console.log("Searching for Ingredient", req.query)

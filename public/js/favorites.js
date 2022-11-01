@@ -11,14 +11,14 @@ async function deleteFavorite (ID) {
   .catch(err => console.error(err))
 }
 
-function test() {
-  console.log("Click!")
-}
 
 document.addEventListener('click', (event) => {
   if(!event.target.dataset.drinkid){
+    console.log("Delete Button Hit Incorrectly");
+    console.log(event.target.dataset);
     return
   }
+  console.log("Delete Button Hit");
   deleteFavorite(event.target.dataset.drinkid)
 })
 
