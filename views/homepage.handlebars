@@ -1,53 +1,67 @@
 {{!-- <h2>Home Page</h2> --}}
 
-<h1
+{{!-- <h1
     style="color:antiquewhite; text-shadow: 3px 3px 3px gray; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">
-    Welcome to your Virtual Bartender!</h1>
+    Welcome to your Virtual Bartender!</h1> --}}
+<img src="/images/script.png" alt="script-title" style="max-width: 80%;">
 {{!-- <h2>Enter a cocktail: <span><input type="text"><button>Enter</button></span></h2> --}}
 
 
 
 
 <div class="grid-container">
+
     <div class="grid-x grid-margin-x small-up-2 medium-up-3">
+
         <div class="cell">
-            <div class="card">
+
+            <div class="card homepage-card">
                 <img src="images/espresso-tini.jpg">
                 <div class="card-section">
-                    <h4>Our Favorites</h4>
-                    <p>A collection of favorites from 'The Best Men'.</p>
+                    <h4 style="font-family:'Courier New', Courier, monospace; font-weight:bold">Our Favorites</h4>
+                    <p style="font-size: 14px;">A collection of favorites from 'The Best Men'.</p>
                 </div>
             </div>
+
         </div>
 
-        <a href="/classics">
-        <div class="cell" style="max-height: 537px; max-width: 370px;">
-
-            <div class="card">
-
-                <img src="/images/old-fashioned.jpg">
-
-                <div class="card-section">
-                    <h4>Modern Classics</h4>
-                    <p>Cockatils that have inspired exciting new ideas</p>
-                </div>
-            </div>
-        </div>
-        </a>
 
         <div class="cell">
-            <div class="card">
+
+            <div class="card homepage-card">
                 <img src="/images/cocktail-new.jpg" alt="cocktail">
                 <div class="card-section">
 
-                    <h4>Explore by Ingredients</h4>
-                    <p>Have liquor but not sure what you can make? Enter your liquor type here:</p>
+                    <h4 style="font-family:'Courier New', Courier, monospace; font-weight:bold">Explore by Liquor Type
+                    </h4>
+                    {{!-- <p>Search by liquor type here:</p> --}}
+
                     <form method="GET" action="/byingredient">
-                        <input name="search" placeholder="Enter your liquors here">
+                        <input name="search" placeholder="Enter a Liquor"
+                            style="text-align: center; border-radius: 50px">
                     </form>
+
                 </div>
 
             </div>
         </div>
+
+
+        <div class="cell">
+            <a href="/classics">
+                <div class="card homepage-card">
+
+                    <img src="/images/old-fashioned.jpg">
+
+                    <div class="card-section">
+                        <h4 style="font-family:'Courier New', Courier, monospace; font-weight:bold">Modern Classics</h4>
+                        <p style="font-size: 14px;">Cockatils that have inspired exciting new ideas</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+
+
     </div>
 </div>
