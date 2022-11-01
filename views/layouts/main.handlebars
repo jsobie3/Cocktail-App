@@ -22,26 +22,26 @@
       <div class="top-bar-left" style="max-width: 18%;">
 
 
-        <a href="/">
+       
 
 
-        </a>
+    
         {{#if loggedIn}}
         {{!-- <li><button id="logout" class="btn-no-style">Logout</button></li> --}}
         <ul class="no-bullet">
           <li><a href="/"><button id="logout" class="button-round"
-                style="color: white; float: left; margin-right: 10px; margin-top: 10px;">Logout</button></a>
+                style="color: white; float: left; margin-right: 10px;">Logout</button></a>
           </li>
           {{!-- <li><a href="/profile">Profile</a></li> --}}
           <li>
             <a href="/profile"><button id="search-button" class="button-round"
-                style="color: white; float: left; margin-top: 10px;">Profile</button></a>
+                style="color: white; float: left;">Profile</button></a>
           </li>
         </ul>
         {{else}}
         {{!-- Login --}}
         <a href="/login"><button id="search-button" class="button-round"
-            style="color: white; float: left; margin-top: 10px;">Login</button></a>
+            style="color: white; float: left;">Login</button></a>
         {{/if}}
 
 
@@ -49,9 +49,9 @@
 
 
       </div>
-
+ <a href="/">
       <img src="/images/best-men-logo.png" style=" justify-content: center; display: flex; flex: 0;" >
-
+    </a>
       <div class="top-bar-right">
         <form method="GET" action="/search" style="float-left">
 
