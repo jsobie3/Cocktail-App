@@ -11,6 +11,10 @@ Favorite.init(
             primaryKey: true,
             autoIncrement: true,
         },
+        // name: {
+        //     type: DataTypes.STRING,
+        //     allowNull: false
+        // },
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -26,7 +30,11 @@ Favorite.init(
         drink_name: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        // drink_image: {
+        //     type: DataTypes.STRING,
+        //     allowNull: true
+        // }
     },{
         sequelize,
         freezeTableName: true,

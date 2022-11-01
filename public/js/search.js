@@ -37,9 +37,10 @@ const getSearchResults = async () => {
             if (e.target.dataset.drinkid){
                 let drinkID = e.target.dataset.drinkid;
                 let drinkName = e.target.dataset.drinkname;
+                let drinkImage = e.target.dataset.drinkimage;
                 const response = await fetch('/api/favorites', {
                     method: 'POST',
-                    body: JSON.stringify ({drinkID, drinkName}),
+                    body: JSON.stringify ({drinkID, drinkName, drinkImage}),
                     headers: {'Content-Type' : 'application/json'},
                 });
                 if (response.ok) {

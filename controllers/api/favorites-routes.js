@@ -20,15 +20,15 @@ router.get('/', async (req, res) => {
   try {
     const favoritesList = await Favorite.findAll({
       where: {
-        user_id: req.session.user_id
+        user_id: req.headers.user_id
       }
     })
     if (!favoritesList) {
       res.status(404).json({ message: 'No favorites found' })
     }
-    res.render('favorites', { favoritesList })
+    res.json(favoritesList)
   } catch (err) {
-    res.status(500).json(err)
+    res.status(500).json("Jalen broke this")
   }
 });
 
