@@ -292,6 +292,7 @@ img {
 .button-round:hover{
   background-color: rgba(102, 97, 97, 0.884);
   transition: background-color 0.5s;
+  cursor: pointer;
 }
 
 #liquor-search {
