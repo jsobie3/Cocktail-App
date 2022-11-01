@@ -12,19 +12,31 @@
 <div class="grid-container">
 
     <div class="grid-x grid-margin-x small-up-2 medium-up-3">
-
+{{#if loggedIn}}
         <div class="cell">
-            <a href="/ourfavorites">
+            <a href="/profile">
                 <div class="card homepage-card">
                     <img src="images/espresso-tini.jpg">
                     <div class="card-section">
-                        <h4 style="font-family:'Courier New', Courier, monospace; font-weight:bold">Our Favorites</h4>
-                        <p style="font-size: 14px;">A collection of favorites from 'The Best Men'.</p>
+                        <h4 style="font-family:'Courier New', Courier, monospace; font-weight:bold">Your Profile</h4>
+                        <p style="font-size: 14px;">A place for you to build your own collection.</p>
                     </div>
                 </div>
             </a>
         </div>
+{{else}}
+        <div class="cell">
 
+                <div class="card homepage-card">
+                    <img src="images/espresso-tini.jpg">
+                    <div class="card-section">
+                        <h4 style="font-family:'Courier New', Courier, monospace; font-weight:bold">Your Profile</h4>
+                        <p style="font-size: 14px;">A place for you to build your own collection.</p>
+                    </div>
+                </div>
+
+        </div>
+        {{/if}}
 
         <div class="cell">
 
