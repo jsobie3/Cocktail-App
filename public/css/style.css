@@ -82,7 +82,7 @@ nav a:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  align-items: center;
+  align-items:flex-start;
   background-image: url('/images/speakeasy.jpg');
   object-fit: cover;
   max-width: 100%;
