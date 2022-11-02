@@ -20,7 +20,9 @@ document.addEventListener('click', (event) => {
   }
   console.log("Delete Button Hit");
   deleteFavorite(event.target.dataset.drinkid)
+  .then(()=> window.location.reload())
 })
+
 
 // GETTING FAVS FROM USERS
 
