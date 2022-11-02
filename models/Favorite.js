@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const User = require('./User')
 
-class Favorite extends Model {};
+class Favorite extends Model { };
 
 Favorite.init(
     {
@@ -31,15 +31,15 @@ Favorite.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        // drink_image: {
-        //     type: DataTypes.STRING,
-        //     allowNull: true
-        // }
-    },{
-        sequelize,
-        freezeTableName: true,
-        modelName: 'favorite',
-        timestamps: false
-    }
+        drink_image: {
+            type: DataTypes.STRING,
+            allowNull: true
+        }
+    }, {
+    sequelize,
+    freezeTableName: true,
+    modelName: 'favorite',
+    timestamps: false
+}
 )
 module.exports = Favorite;
