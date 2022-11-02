@@ -6,7 +6,8 @@ router.post('/', async (req, res) => {
     await Favorite.create({
       user_id: req.session.user_id,
       drink_id: req.body.drinkID,
-      drink_name: req.body.drinkName
+      drink_name: req.body.drinkName,
+      drink_image: req.body.drinkImage
     })
     res.status(200).json({ message: "Favorite added" })
   }
