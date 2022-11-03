@@ -9,7 +9,7 @@
   
 
 ###
-Rapid API is a paid API, for any future demo please contact the orginization for a live demo.
+Rapid API is a paid API, for any future demo please contact the organization for a live demo.
 
   
   ## Technologies:
