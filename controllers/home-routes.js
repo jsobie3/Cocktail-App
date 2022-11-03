@@ -45,24 +45,42 @@ router.get('/classics', (req, res) => {
 });
 
 
+//Our Favorites
+router.get('/ourfavorites', (req, res) => {
+  res.render('ourfavorites', {
+    loggedIn: req.session.loggedIn
+  })
+})
+
+// No Results
+router.get('/404', (req, res) => {
+
+  res.render('404', {
+    loggedIn: req.session.loggedIn
+  });
+});
+
+
+
+
 // Search route
 
 const options = {
   headers: {
-    'X-RapidAPI-Key': '7697d621e5msh45f75f307152943p1d76e8jsn107cee9d3bf4',
+    'X-RapidAPI-Key': process.env.API_KEY,
     'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
   }
 };
 
 router.get('/search', (req, res) => {
-  console.log("REQUEST QUERYYYYYYYY", req.query)
+  console.log("REQUEST QUERY", req.query)
   axios.get(`https://the-cocktail-db.p.rapidapi.com/search.php?s=${req.query.search}`, options)
     .then(response => {
       const results = response.data.drinks;
-      if(!results){
-        // TODO: THIS IS WHERE WE SHOULD SOMEHOW INDICATE NO RESULTS -- MAKE 404 LANDING PAGE IN VIEWS?
-        return res.status(404).end();
+      if (results == null) {
+        return res.redirect('/404');
       }
+
       console.log(results)
       let drinks = (results || []).map(drink => {
         let newDrink = { ...drink, ingredients: [] };
@@ -78,45 +96,51 @@ router.get('/search', (req, res) => {
         return newDrink;
       })
       console.log("RESULTS", drinks)
-      res.render('search', { 
+      res.render('search', {
         drinks: drinks,
-      loggedIn: req.session.loggedIn })
+        loggedIn: req.session.loggedIn,
+        user_id: req.session.user_id
+      })
     })
 
 })
 // Need to write an if statement in case the search box is left blank. Currently runs a getAll, but would prefer an alert window pop up
 
-router.get('/profile/favorites', async(req, res) => {
+router.get('/profile/favorites', async (req, res) => {
   var fullUrl = req.protocol + '://' + req.get('host');
   // console.log(req.session);
   axios.get(`${fullUrl}/api/favorites`, {
     withCredentials: true,
     credentials: "include",
     headers: {
-      'user_id' : req.session.user_id
-    }})
-  .then((response) => {
-    results = response.data
-    console.log(results)
-    if(results){
-      res.render('favorites', { 
-        drinks: results 
-      })
+      'user_id': req.session.user_id
     }
-    else{
-      console.log("triggering me")}
+  })
+    .then((response) => {
+      results = response.data
+      console.log(results)
+      if (results) {
+        res.render('favorites', {
+          drinks: results,
+          loggedIn: req.session.loggedIn
+        })
+      }
+      else {
+        console.log("triggering me")
+      }
     })
-  .catch(e => {console.log(e.response.data)});
+    .catch(e => { console.log(e.response.data) });
 })
+
 
 router.get('/byingredient', (req, res) => {
   console.log("Searching for Ingredient", req.query)
   axios.get(`https://the-cocktail-db.p.rapidapi.com/filter.php?i=${req.query.search}`, options)
-  .then(response => {
-    const results = response.data.drinks;
-    console.log("RESULTS", results)
-    res.render('byingredient', { results })
-  })
+    .then(response => {
+      const results = response.data.drinks;
+      console.log("RESULTS", results)
+      res.render('byingredient', { results })
+    })
 })
 
 module.exports = router;

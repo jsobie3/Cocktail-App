@@ -1,8 +1,12 @@
 {{#each drinks as |result|}}
 <div class="card" style="padding: 50px; min-width: 500px; align-items: center;">
-    <p>{{result.drink_name}}</p>
-    <button class='drinkDetailsButton button'> Full Entry</button>
-    <button class='deleteFavoriteButton button' data-drinkID="{{dataValues.drink_id}}"> Delete Favorite</button>
+    <h3 style="font-family:'Courier New', Courier, monospace ;">{{result.drink_name}}</h3>
+    <hr>
+    <img src="{{result.drink_image}}">
+    <a href="/search?search={{result.drink_name}}"><button class='drinkDetailsButton button-round'
+            style="color: white; margin: 5px;"> Full Entry</button></a>
+    <button class='deleteFavoriteButton button-round' data-drinkID="{{result.drink_id}}"
+        style="color: white; margin: 5px;"> Delete Favorite</button>
 </div>
 {{else}}
 <div class="card" style="padding: 50px; min-width: 500px; align-items: center;">
