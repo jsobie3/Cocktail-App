@@ -1,5 +1,6 @@
 console.log("YOU HAVE ACCESSED SEARCH.JS")
 
+
 // const options = {
 //     method: 'GET',
 //     headers: {
@@ -30,6 +31,8 @@ const getSearchResults = async () => {
 
 $(document).ready(function () {
 
+    console.log(window)
+
     $(".saveBtn").on("click", async function (e) {
         e.preventDefault();
         console.log("yousa cilka da battan3");
@@ -51,6 +54,25 @@ $(document).ready(function () {
         };
     });
 });
+
+
+
+
+
+// hideFavorites()
+// e.target.dataset.drinkid included in favorites
+// e.target.ClassList.add()
+
+// hide the favorite button for a drink if it's already favorited
+// async function hideFavorites(){
+//     let favorites = Favorite.findAll({
+//         where:{
+//             user_id : session.user_id
+//         }
+//     })
+//     for(drink in favorites)
+// }
+
 
 //getSearchResults();
 // document.getElementById('search-button').addEventListener('click', searchFormHandler)

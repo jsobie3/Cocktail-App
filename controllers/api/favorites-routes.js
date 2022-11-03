@@ -2,6 +2,17 @@ const router = require('express').Router();
 const { Favorite } = require('../../models')
 
 router.post('/', async (req, res) => {
+  // let alreadyFavorited = await Favorite.findOne({
+  //   where: {
+  //     user_id: req.session.user_id,
+  //     drink_id: req.body.drinkID
+  //   }
+  // })
+  // console.log('Favorite Check________________________________________________________________: ', alreadyFavorited)
+  // if (alreadyFavorited){
+  //   // alert('Already a favorite!')
+  //   res.end()
+  // }
   try {
     await Favorite.create({
       user_id: req.session.user_id,
