@@ -7,6 +7,10 @@
   
   
   
+
+###
+Rapid API is a paid API, for any future demo please contact the orginization for a live demo.
+
   
   ## Technologies:
   APIs: https://rapidapi.com/thecocktaildb/api/the-cocktail-db
